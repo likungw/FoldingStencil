@@ -88,7 +88,33 @@ int check_flag;
 													 v1=_mm256_mul_pd(_mm256_add_pd(v1,v5), kk);\
 													 v2=_mm256_mul_pd(_mm256_add_pd(v2,v6), kk);\
 													 v3=_mm256_mul_pd(_mm256_add_pd(v3,v7), kk);}	
-													 										 
+
+#define cross_comp_s2_nb2_v8(v0,v1,v2,v3,v4,v5,v6,v7)  {v4=_mm256_add_pd(v0,v4);\
+														v5=_mm256_add_pd(v1,v5);\
+														v6=_mm256_add_pd(v2,v6);\
+														v7=_mm256_add_pd(v3,v7);}	
+
+#define cross_comp_s2_nb0_vall(v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13)\
+													   {v0=_mm256_add_pd(_mm256_add_pd(_mm256_add_pd(v0,v8), _mm256_fmadd_pd(v2,v2,v10)),v4);\
+														v1=_mm256_add_pd(_mm256_add_pd(_mm256_add_pd(v1,v9), _mm256_fmadd_pd(v3,v3,v11)),v5);\
+														v2=_mm256_add_pd(_mm256_add_pd(_mm256_add_pd(v2,v10),_mm256_fmadd_pd(v4,v4,v12)),v6);\
+														v3=_mm256_add_pd(_mm256_add_pd(_mm256_add_pd(v3,v11),_mm256_fmadd_pd(v5,v5,v13)),v7);}	
+
+#define cross_comp_s2_nb1_v6(v0,v1,v2,v3,v4,v5)  	   {v0=_mm256_add_pd(_mm256_add_pd(v0,v1),v2);\
+														v1=_mm256_add_pd(_mm256_add_pd(v1,v2),v3);\
+														v2=_mm256_add_pd(_mm256_add_pd(v2,v3),v4);\
+														v3=_mm256_add_pd(_mm256_add_pd(v3,v4),v5);}	
+													
+#define cobine_comp_s2_hv4(v0,v1,v2,v3,v4,v5,v6,v7)	{v4=_mm256_mul_pd(v0,v4);\
+													 v5=_mm256_mul_pd(v1,v5);\
+													 v6=_mm256_mul_pd(v2,v6);\
+													 v7=_mm256_mul_pd(v3,v7);}		
+
+
+#define cross_comp_s2p9_ma1(v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11) {v0=_mm256_fmadd_pd(v6,v6,v4);\
+																	v1=_mm256_fmadd_pd(v7,v7,v5);\
+																	v2=_mm256_fmadd_pd(v8,v8,v6);\
+																	v3=_mm256_fmadd_pd(v9,v9,v7);}													 										 
 #define compute(up, v, down, ww, kk) {v=_mm256_add_pd(v,down);v=_mm256_add_pd(up,v);v=_mm256_mul_pd(v,kk);}
 #define computed(up, v, down, ww, kk) {up=_mm256_mul_pd(_mm256_add_pd(up,_mm256_add_pd(v,down)),kk);}
 #define setcompute(v0,v1,v2,v3,v4,v5,ww,kk) 	{v0=_mm256_mul_pd(_mm256_add_pd(_mm256_add_pd(v1,v0),v2),kk);\
@@ -284,5 +310,7 @@ void allpipe_3d(double**** A, int NX, int NY, int NZ, int T);
 void one_tile_3d(double**** A, int NX, int NY, int NZ, int T, int Bx, int By, int tb);
 void one_tile_aligned_3d(double**** A, int NX, int NY, int NZ, int T, int Bx, int By, int tb);
 //void two_tile_aligned_3d(double**** A, int NX, int NY, int NZ, int T, int Bx, int By, int tb);
+void one_tile_cross_3d(double**** A, int NX, int NY, int NZ, int T, int Bx, int By, int tb);
+void two_tile_cross_3d(double**** A, int NX, int NY, int NZ, int T, int Bx, int By, int tb);
 void one_tile_3d27p(double**** A, int NX, int NY, int NZ, int T, int Bx, int By, int tb);
 void one_tile_plane_cross_3d(double ****A, int NX, int NY, int NZ, int T, int Bx, int By, int tb);

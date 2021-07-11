@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	struct timeval start, end;
-	printf("KKK!!\n");
+	printf("Start!!\n");
 	long int i, j, k;
 	if (argc != 8)
 	{
@@ -88,8 +88,9 @@ int main(int argc, char *argv[])
 
 	ompp_3d(B,Y,Z, NX, NY, NZ, T, Bx, By, tb);
 	//allpipe_3d(A, NX, NY, NZ, T);
+	one_tile_cross_3d(A, NX, NY, NZ, T, Bx, By, tb);
 	one_tile_3d(A, NX, NY, NZ, T, Bx, By, tb);
-	one_tile_plane_cross_3d(A, NX, NY, NZ, T, Bx, By, tb);
+	//two_tile_cross_3d(A, NX, NY, NZ, T, Bx, By, tb);
 	//one_tile_aligned_3d(A, NX, NY, NZ, T, Bx, By, tb);
 	//two_tile_aligned_3d(A, NX, NY, NZ, T, Bx, By, tb);
 	//one_tile_3d27p(A, NX, NY, NZ, T, Bx, By, tb);

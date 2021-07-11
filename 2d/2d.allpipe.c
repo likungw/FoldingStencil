@@ -86,9 +86,7 @@ void allpipe_2d(double*** A, double*** B, int NX, int NY, int T, int Bx, int By,
 
 	gettimeofday(&end, 0);
 	printf("ALLPIPE_2D GStencil/s = %f\n", ((double)NX * NY * T) / (double)(end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec) * 1.0e-6) / 1000000000L);
-
-	// check
-	check_2d(B, C, NX, NY, T);
+ 
 	// free
 	for (i = 0; i < 2; i++) {
 		for (j = 0; j < (NX + 2 * XSLOPE); j++) {

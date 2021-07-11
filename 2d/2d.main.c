@@ -9,7 +9,7 @@
 
 int main(int argc, char* argv[]) {
 	struct timeval start, end;
-	printf("KKK!!\n");
+	printf("Start!!\n");
 	long int i, j;
 	if (argc != 7) {
 		printf("usage: %s <NX> <NY> <T> <Bx> <By> <tb>\n", argv[0]);
@@ -58,18 +58,19 @@ int main(int argc, char* argv[]) {
 	//ompp_2d(B, NX, NY, T, Bx, By, tb);
 	//ompp_2d9w(B, NX, NY, T, Bx, By, tb);
 	//two_tile_2d(A, NX, NY, T, Bx, By, tb);
-	tile_2d2s(A, NX, NY, T, Bx, By, tb);
+	//tile_2d2s(A, NX, NY, T, Bx, By, tb); 
+	allpipe_2d(A, B, NX, NY, T, Bx, By, tb);
+	cross_2d1s9p(A, NX, NY, T, Bx, By, tb);
+	cross_2d2s9p(A, NX, NY, T, Bx, By, tb);
 	//allpipe_2d(A, B, NX, NY, T, Bx, By, tb);
 	//two_steps_2d(A, B, NX, NY, T, Bx, By, tb);
 	
 	//our_2d1s5p(A, NX, NY, T, Bx, By, tb);
 	//our_2d1s9p(A, NX, NY, T, Bx, By, tb);
 	//cross_2d1s5p(A, NX, NY, T, Bx, By, tb);
-	//cross_2d1s9p(A, NX, NY, T, Bx, By, tb);
 	//sc_2d1sgol(A, NX, NY, T, Bx, By, tb);
 	//cross_2d1sgol(A, NX, NY, T, Bx, By, tb);
-	//cross_2d2s5p(A, NX, NY, T, Bx, By, tb);
-	//cross_2d2s9p(A, NX, NY, T, Bx, By, tb);
+	//cross_2d2s5p(A, NX, NY, T, Bx, By, tb); 
 	//cross_2d2s9w(A, NX, NY, T, Bx, By, tb);
 	//test();
 

@@ -25,11 +25,11 @@ endif
 
 
 all: exe_1d 
-exe_1d: exe_1d5p 
+exe_1d: exe_1d3p 
 
 .PHONY: clean 
 
-exe_1d5p: *.c
+exe_1d3p: *.c
 	$(CC) $(CFLAGS) -Dpoint=3 $^ -o $@ $(LDFLAGS)
 
 clean:

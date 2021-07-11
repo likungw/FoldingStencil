@@ -21,12 +21,12 @@ endif
 
 
 all: exe_2d 
-exe_2d: exe_2d5p
+exe_2d: exe_2d9p
 
 .PHONY: clean 
 
-exe_2d5p: *.c
-	$(CC) $(CFLAGS) -Dpoint=5 $^ -o $@ $(LDFLAGS)
+exe_2d9p: *.c
+	$(CC) $(CFLAGS) -Dpoint=9 $^ -o $@ $(LDFLAGS)
 
 clean:
 	rm -f   exe_* 

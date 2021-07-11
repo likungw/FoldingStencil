@@ -324,7 +324,7 @@ void one_tile_cross_3d(double ****A, int NX, int NY, int NZ, int T, int Bx, int 
 
 	gettimeofday(&end, 0);
 
-	printf("CROSS_ONE_TILE_3D MStencil/s = %f\n", ((double)NX * NY * NZ * T) / (double)(end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec) * 1.0e-6) / 1000000L);
+	printf("Our 1step MStencil/s = %f\n", ((double)NX * NY * NZ * T) / (double)(end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec) * 1.0e-6) / 1000000L);
 
 #ifdef CHECK_ONE_TILE_3D
 	for (t = 0; t < T; t++)

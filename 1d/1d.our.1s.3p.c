@@ -68,18 +68,17 @@ void our_1d1s3p(double **A, double **R, int N, int T, int Bx, int tb)
 					}
 
 					// TODO: do not transpose every time
-					//trans(v1, v2, v3, v4);
+					if(t==0)
+						trans(v1, v2, v3, v4);
 
-					//post1 = tail1(v1, v5); // post1: v1[1] v1[2] v1[3] v5[0]
-					//post2 = tail2(v2, v5); // post2: v2[1] v2[2] v2[3] v5[1]
 					shuffle_tail(v1, v5,post1);
 					shuffle_tail(v2, v5,post2);
 
 					// results are stored in v1 v2 v3 v4
 					setcompute2(v1, v2, v3, v4, post1, post2, ww, kk);
 
-					//trans(v1, v2, v3, v4);
-
+					if(t==T-1)
+					trans(v1, v2, v3, v4);
 					setstore(v1, v2, v3, v4, B[(t + 1) % 2][x]);
 
 					v1 = v5;

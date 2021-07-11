@@ -9,7 +9,7 @@
 int main(int argc, char * argv[]) {
 
 	struct timeval start, end;
-	printf("KKK!!\n");
+	printf("Start!!\n");
 	long int  i;
 	int N  = atoi(argv[1]);
 	int T  = atoi(argv[2]);
@@ -54,13 +54,13 @@ int main(int argc, char * argv[]) {
 		D[0][i] = i;
 	}   
  
-	//redun_load(A, N, T);
-	//regis_mov(A, N, T);
-	ompp(B, N, T, Bx, tb);
-	ompp_apop(A, C, N, T, Bx, tb);
-	our_1d1sapop(A, D, N, T, Bx, tb);
-	//our_1d1s3p(A, B, N, T, Bx, tb);
-	//cross_1d2s3p(A, B, N, T, Bx, tb);
+	redun_load(A, N, T);
+	regis_mov(A, N, T);
+	//ompp(B, N, T, Bx, tb);
+	//ompp_apop(A, C, N, T, Bx, tb);
+	//our_1d1sapop(A, D, N, T, Bx, tb);
+	our_1d1s3p(A, B, N, T, Bx, tb);
+	cross_1d2s3p(A, B, N, T, Bx, tb);
 	//cross_1d3s3p(A, B, N, T, Bx, tb);
 	//cross_1d4s3p(A, B, N, T, Bx, tb);
 	//ompp_apop(A, C, N, T, Bx, tb);

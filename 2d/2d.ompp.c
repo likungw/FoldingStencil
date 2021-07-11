@@ -106,19 +106,4 @@ dif = 0;
 
 	printf("OMPP GStencil/s = %f\n", ((double)NX * NY * T) / (double)(end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec) * 1.0e-6) / 1000000000L);
 
-#ifdef CHECK
-	for (t = 0; t < T; t++) {
-		for (x = XSLOPE; x < NX + XSLOPE; x++) {
-			for (y = YSLOPE; y < NY + YSLOPE; y++) {
-				kernel(B);
-			}
-		}
-	}
-	for (i = XSLOPE; i < NX+XSLOPE; i++) {
-		for (j = YSLOPE; j < NY+YSLOPE; j++) {
-			if(myabs(A[T%2][i][j],B[T%2][i][j]) > TOLERANCE)
-				printf("Naive[%d][%d] = %f, Check = %f: FAILED!\n", i, j, B[T%2][i][j], A[T%2][i][j]);
-			}
-	}
-#endif
 }
